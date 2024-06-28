@@ -3,6 +3,7 @@ import datetime
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
+from FundEr import settings
 
 # Create your views here.
 
