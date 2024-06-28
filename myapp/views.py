@@ -14,7 +14,8 @@ blockchain_address = 'http://127.0.0.1:7545'
 web3 = Web3(HTTPProvider(blockchain_address))
 web3.eth.defaultAccount = web3.eth.accounts[0]
 
-compiled_contract_path = r'E:\FundEr\myapp\static\funder\build\contracts\MyContract.json'
+#compiled_contract_path = r'E:\FundEr\myapp\static\funder\build\contracts\MyContract.json'
+compiled_contract_path = settings.STATIC_PATH+'\\static\\funder\\build\\contracts\\MyContract.json'
 deployed_contract_addressa = '0xe7642a8B7017780C3dEaf66557F696Af8BBf6765'
 with open('myapp/static/funder/build/contracts/MyContract.json') as f:
     contract_data = json.load(f)
