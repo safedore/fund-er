@@ -1,0 +1,33 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-hover" >
+    <tr>
+      <th>S .no</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Total Amount</th>
+      <th>Total Count</th>
+      <td>Image</td>
+      <td></td>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td height="143">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.category }}</td>
+      <td>&nbsp;{{ i.title }}</td>
+      <td>&nbsp;{{ i.description }}</td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>&nbsp;{{ i.count }}</td>
+      <td>&nbsp;<img src="{{ i.image }}" height="100px"></td>
+      <td>&nbsp;<a href="/myapp/user_send_fund_request/{{ i.id }}" class="btn btn-info">Send Request</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

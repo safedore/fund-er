@@ -1,0 +1,75 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+
+<body>
+<form action="/myapp/view_edit_profile_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+   <tr>
+            <td colspan="2">
+                <img src="{{ data.image }}" width="150px" height="150px">
+            </td>
+        </tr>
+  <tr>{% csrf_token %}
+    <td width="60">Name</td>
+    <td width="330">
+      <input class="form-control" required type="text" name="textfield" id="textfield" value="{{ data.name }}"  pattern="[A-Z a-z]+"/></td>
+  </tr>
+     <tr>
+    <td>Dob</td>
+    <td>
+      <input type="date" class="form-control" onclick="var currentDate = new Date();
+					    var maxDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+					    this.max = maxDate.toISOString().split('T')[0].toString();" required name="textfield8" id="textfield8" value="{{ data.dob }}"/></td>
+  </tr>
+  <tr>
+     <td>Gender</td>
+      <td><p>
+
+ <label>
+          <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_1" {% if data.gender == 'Male' %}checked{% endif %} />
+          Male</label>
+        <br />        <label>
+          <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1"  {% if data.gender == 'Female' %}checked{% endif %} />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="Other" id="RadioGroup1_2"  {% if data.gender == 'Other' %}checked{% endif %} />
+          Other</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="Prefer Not to Say" id="RadioGroup1_2"  {% if data.gender == 'Prefer Not to Say' %}checked{% endif %} />
+          Prefer Not to Say</label>
+        <br />
+      </p></td>
+    </tr>
+  <tr>
+    <td>Email</td>
+    <td><label for="textfield2"></label>
+      <input type="email" name="textfield2" id="textfield2" readonly value="{{ data.email }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required  value="{{ data.phone }}" pattern="[9876][0-9]{9}" max="10jjjh"/></td>
+  </tr>
+     <tr>
+    <td>Wallet Address</td>
+    <td>
+      <input type="text" pattern="^0x[a-fA-F0-9]{40}$" title="Enter a valid Ethereum wallet address. Ex: 0x7017d52A7FDf1D677yjhssc6776s6ds6" name="textfield14" id="textfield14" value="{{ data.wallet_address }}"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ data.place }}" class="form-control" required /></td>
+  </tr>
+
+  <tr>
+      <td></td>
+    <td><input type="submit" name="button" id="button" class="btn btn-success" value="Update" /></td>
+  </tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

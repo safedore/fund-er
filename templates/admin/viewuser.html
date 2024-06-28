@@ -1,0 +1,41 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/search_user/">
+{% csrf_token %}
+<table class="pull-left">
+    <tr>
+        <td><input type="text" name="search" class="form-control"></td>
+        <td><input type="submit" value="search" class="btn btn-info"> </td>
+    </tr>
+</table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>S .no</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th>Gender</th>
+      <th>Gmail</th>
+      <th>Phone </th>
+      <th>Place</th>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name}}</td>
+      <td>&nbsp;{{ i.dob }}</td>
+      <td>&nbsp;&nbsp;{{ i.gender }}</td>
+      <td>&nbsp;&nbsp;{{ i.email }}</td>
+      <td>&nbsp;&nbsp;{{ i.phone }}</td>
+      <td>{{ i.place}}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-hover" >
+    <tr>
+      <th>S .no</th>
+      <th>Date</th>
+      <th>Sender</th>
+      <th>My Address</th>
+      <th>Amount</th>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td height="143">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.Date }}</td>
+      <td>&nbsp;{{ i.Sender }}</td>
+      <td>&nbsp;{{ i.Reciever }}</td>
+      <td>&nbsp;{{ i.Amount|floatformat:4 }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

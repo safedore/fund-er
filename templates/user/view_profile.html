@@ -1,0 +1,47 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+<body>
+<form>
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="2">
+                <img src="{{ data.image }}" width="150px" height="150px">
+            </td>
+        </tr>
+    <tr>
+        <td width="180px">Name</td>
+        <td>{{ data.name }}</td>
+    </tr>
+    <tr>
+        <td>Dob</td>
+        <td>{{ data.dob }}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{ data.gender }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ data.email }}</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td>{{ data.phone }}</td>
+    </tr>
+    <tr>
+        <td>Place</td>
+        <td>{{ data.place }}</td>
+    </tr>
+    <tr>
+        <td>Wallet Address</td>
+        <td>{{ data.wallet_address }}</td>
+    </tr>
+    <tr>
+        <td><a href="/myapp/view_edit_profile/" class="btn btn-warning">Edit</a> </td>
+{#        <td>{{ data.name }}</td>#}
+    </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

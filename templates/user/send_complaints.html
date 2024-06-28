@@ -1,0 +1,20 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+<body>
+ <table class="table">
+    <form action="/myapp/sent_complaint_post/" method="post">
+    {% csrf_token %}
+   <div class="container p-3 my-3">
+         <div class="col">
+
+             <input type="hidden" value="{{ id }}" name="rid">
+             <textarea name="complaint" minlength="15" placeholder="Enter complaint here" class="form-control" required rows="5" cols="200"></textarea>
+         <input type="submit" class="form-control my-2 btn btn-success" value="submit">
+         </div>
+   </div>
+
+
+
+</body>
+{% endblock %}

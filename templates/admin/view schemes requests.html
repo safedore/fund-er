@@ -1,0 +1,35 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-hover" >
+    <tr>
+      <th>S .no</th>
+      <th>Date</th>
+      <th>User</th>
+      <th>Description</th>
+      <th>ID Proof</th>
+      <th>Status</th>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td height="143">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.user }}-{{ i.status }}</td>
+      <td>&nbsp;{{ i.purpose }}</td>
+      <td>&nbsp;<img src="{{ i.idPath }}" height="100px"/></td>
+      {% if i.status == 'Pending' %}
+          <td>&nbsp;<a href="/myapp/admin_approve_fund_requests/{{ i.id }}" class="btn btn-info">Approve</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/myapp/admin_reject_fund_requests/{{ i.id }}" class="btn btn-danger">Decline</a></td>
+      {% else %}
+          <td>{{ i.status }}</td>
+      {% endif %}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

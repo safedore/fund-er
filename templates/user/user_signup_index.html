@@ -1,0 +1,133 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Volunteer Application Form </title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Home Loan Application Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<!-- css files -->
+<link rel="stylesheet" href="/static/signup/web/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+<link rel="stylesheet" href="/static/signup/web/css/jquery-ui.css" />
+<!-- //css files -->
+<!-- web-fonts -->
+<link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=GFS+Neohellenic:400,400i,700,700i&amp;subset=greek" rel="stylesheet">
+<!-- //web-fonts -->
+</head>
+<body>
+	<div class="center-container">
+		<!--header-->
+		<div class="header-w3l">
+			<h1>Register</h1>
+		</div>
+		<!--//header-->
+		<!--main-->
+	<div class="agileits-register">
+<form action="/myapp/signup_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+				<div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Name :</span>
+					<input type="text" name="textfield" placeholder="Your Name" required="" pattern="[A-Z a-z]+"/>
+					<div class="clear"> </div>
+				</div>
+            <div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Date Of Birth :</span>
+					<input class="date" id="datepicker" name="textfield8" type="text" value="yyyy-mm-dd" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {
+					    var currentDate = new Date();
+					    var maxDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+					    this.value = maxDate.toISOString().split('T')[0].toString();
+{#					    this.value = '2006-04-01'#}
+					}"  required="" />
+					<div class="clear"> </div>
+				</div>
+
+
+				<div class="w3_modal_body_grid">
+					<span>Email :</span>
+					<input type="email" name="textfield2" placeholder="Your E-mail" required=""/>
+					<div class="clear"> </div>
+				</div>
+				<div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Phone Number :</span>
+					<input type="text" name="textfield3" placeholder="Your Phone Number" required="" pattern="[9876][0-9]{9}" max="10"/>
+					<div class="clear"> </div>
+				</div>
+				<div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Place</span>
+					<input type="text" name="textfield4" placeholder="Place" required=""/>
+					<div class="clear"> </div>
+				</div>
+				<div class="w3_modal_body_grid">
+					<span>Gender :</span>
+					<select id="w3_country" name="RadioGroup1" class="frm-field required">
+						<option value="Prefer Not to Say">Select</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Other">Other</option>
+					</select>
+					<div class="clear"> </div>
+				</div>
+				<div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Wallet Address :</span>
+					<input type="text" pattern="^0x[a-fA-F0-9]{40}$" title="Enter a valid Ethereum wallet address" name="textfield14" placeholder="***Please check before entering***" required=""/>
+					<div class="clear"> </div>
+				</div>
+
+                <div>
+
+                	<div class="w3_modal_body_grid w3_modal_body_grid1">
+					<span>Password :</span>
+					<input type="text" name="textfield16" placeholder="Your Password" required=""pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+					<div class="clear"> </div>
+				</div>
+
+            </div>
+    <div class="w3_modal_body_grid">
+					<span>Choose Photo :</span>
+               <br>
+					<input type="file" name="fileField"required=""/>
+					<div class="clear"> </div>
+				</div>
+
+				
+				<div class="w3_modal_body_grid">
+				
+                    <input type="submit" value="SignUp Now" />
+                    <div class="clear"></div>
+                </div>
+			</form>
+		</div>
+		
+		<!--//main-->
+		
+	</div>
+	<!--footer-->
+		<div class="footer">
+{#			<h2>&copy; 2018 Home Loan Application Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></h2>#}
+		</div>
+		<!--//footer-->
+<!-- js -->
+<script type="text/javascript" src="/static/signup/web/js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- Calendar -->
+<script src="/static/signup/web/js/jquery-ui.js"></script>
+	<script>
+	  $(function() {
+		$( "#datepicker" ).datepicker();
+	 });
+	</script>
+<!-- //Calendar -->		
+
+</body>
+</html>

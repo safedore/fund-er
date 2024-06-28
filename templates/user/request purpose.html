@@ -1,0 +1,22 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+
+<body>
+    <form action="/myapp/user_send_fund_request_post/" method="post" enctype="multipart/form-data">
+        <table class="table">
+        {% csrf_token %}
+            <div class="container p-3 my-3">
+                 <div class="col">
+
+                     <input type="hidden" value="{{ id }}" name="id">
+                     <textarea name="purpose" required placeholder="Enter purpose here" minlength="15" class="form-control" required rows="5" cols="200"></textarea>
+                     <br>
+                     <label for="idProof">Id Proof</label> <input type="file" required class="form-control my-2 btn btn-primary" name="idProof" id="idProof">
+                     <input type="submit" class="form-control my-2 btn btn-success" value="submit">
+                 </div>
+            </div>
+         </table>
+
+    </form>
+</body>
+{% endblock %}

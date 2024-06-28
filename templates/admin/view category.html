@@ -1,0 +1,22 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-hover" >
+    <tr>
+      <th>S .no</th>
+      <th>Category</th>
+        <td></td>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td height="143">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name }}</td>
+        <td><a href="/myapp/admin_delete_fund_categories/{{ i.id }}" class="btn btn-outline-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

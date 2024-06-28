@@ -1,0 +1,83 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
+<body>
+
+<form method="post" action="/myapp/user_view_replysearch/">
+    {% csrf_token %}
+     <table class="pull-left">
+        <tr>
+            <td>From</td>
+            <td>
+                <input type="date" required placeholder="Search here" name="f" class="form-control">
+            </td>
+            <td>To</td>
+            <td>
+                <input type="date" required placeholder="Search here" name="t" class="form-control">
+            </td>
+            <td>
+                <input type="submit" value="Search" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Date</th>
+            <th width="100px">Complaint</th>
+            <th>Status</th>
+            <th>Reply</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in var %}
+            <tr>
+                <td width="50px">{{ forloop.counter }}</td>
+                <td width="120px">{{ i.date }}</td>
+                <td style="width: 100px; max-width: 700px;">
+                    {% if i.complaint|length > 50 %}
+                        <span class="truncated-text">{{ i.complaint|slice:":50" }}...</span>
+                        <a href="#" class="read-more-link">Read more</a>
+                        <div class="hidden-text" style="display: none; overflow: scroll; max-width: 100%; width: 100%">{{ i.complaint }}<a href="#" class="read-less-link"> Show less</a></div>
+                    {% else %}
+                        {{ i.complaint }}
+                    {% endif %}
+                </td>
+
+                <td width="110px">{{ i.status }}</td>
+                <td>{{ i.reply }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    // Script to toggle display of full complaint text
+    document.querySelectorAll('.read-more-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            let hiddenText = this.nextElementSibling;
+            hiddenText.style.display = 'block';
+            this.style.display = 'none';
+            this.previousElementSibling.style.display = 'none'; // Hide the truncated text
+        });
+    });
+
+    // Script to toggle display of truncated complaint text
+    document.querySelectorAll('.read-less-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            let hiddenText = this.parentElement;
+            hiddenText.style.display = 'none';
+            hiddenText.previousElementSibling.style.display = 'inline'; // Show the truncated text
+            hiddenText.previousElementSibling.previousElementSibling.style.display = 'inline'; // Show the ellipsis
+        });
+    });
+</script>
+
+</body>
+{% endblock %}
